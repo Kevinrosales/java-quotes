@@ -12,10 +12,12 @@ public class App {
         Gson gson = new Gson();
         BufferedReader br = null;
         Quote quote = new Quote();
+
         try {
             br = new BufferedReader(new FileReader("recentquotes.JSON"));
             Quote String [] ; gson.fromJson(br, Quote[].class);
-//
+
+
             if (quote != null) {
                 System.out.println(quote.getAuthors() + " " + quote.getText() + " " + quote.getLikes());
             }
