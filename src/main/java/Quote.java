@@ -9,14 +9,13 @@ import com.google.common.reflect.TypeToken;
 import com.google.gson.Gson;
 import java.io.BufferedReader;
 
-
 public class Quote {
     protected String author;
     protected String text;
 
-    public Quote(String author, String text) {
+    public Quote(String author, String quote) {
         this.author = author;
-        this.text = text;
+        this.text = quote;
     }
     //This method gets the Quote from json file and turns it into a quote object
     public static ArrayList<Quote> quoteList() {
@@ -38,16 +37,17 @@ public class Quote {
             URL url = new URL("https://ron-swanson-quotes.herokuapp.com/v2/quotes");
             HttpURLConnection connect = (HttpURLConnection) url.openConnection();
             connect.setRequestMethod("GET");
-            BufferedReader inpu = new BufferedReader(new InputStreamReader(connect.getInputStream()));
+            BufferedReader input = new BufferedReader(new InputStreamReader(connect.getInputStream()));
             String inputLine;
             StringBuffer content = new StringBuffer();
-            while ((inputLine = inpu.readLine()) != null) {
+            while ((inputLine = input.readLine()) != null) {
                 content.append(inputLine);
             }
             Quote quote = new Quote("Ron Swanson", content.deleteCharAt(0).deleteCharAt(content.length() -1 ).toString());
-            inpu.close();
+            input.close();
             return quote;
         }
+//        this is just in cate we don't have internet connection.
         catch (IOException e) {
             System.out.println("No internet connection how about a default saved quote instead");
         }
@@ -55,6 +55,6 @@ public class Quote {
     }
 
     public String toString() {
-        return text + " by " + author;
+        return text + " by the one... the only " + author;
     }
 }
