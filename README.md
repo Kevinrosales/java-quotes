@@ -1,9 +1,12 @@
 # lab08 java-quotes
 This app is made to retrieve data from a json and show random popular book quotes. currently we do not have the
 method working so there is no actual way to test it.
-# creators
-Hiwot Nega & Kevin Rosales
+
+# lab09 Web requests
+for this lab our task was to actually pull quotes from the web instead of out local Json file.
+
+# creator
+Kevin Rosales
 
 # note
-I ended up not being able to salvage what we had done on thursday so I started over from scratch and watched the class
-video and just implemented what I saw from the video into my code.
+Stack overflow is a gift from the gods
